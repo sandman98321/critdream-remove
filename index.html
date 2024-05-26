@@ -20,6 +20,9 @@
         <!-- This script tag bootstraps PyScript -->
         <script type="module" src="https://pyscript.net/releases/2024.5.2/core.js"></script>
 
+        <!-- font-awesome -->
+        <script src="https://kit.fontawesome.com/44d28118f5.js" crossorigin="anonymous"></script>
+
         <script type="module">
             const loading = document.getElementById('loading');
             loading.showModal();
@@ -32,12 +35,12 @@
 
     <body>
         <dialog id="loading">
-            <h1>Loading...</h1>
+            <h1>Loading <i class="fas fa-dice-d20 fa-spin"></i></h1>
         </dialog>
 
         <dialog id="about">
             <div id="about-container">
-                <button id="hide-about" py-click="hide_about">&lt; back</button>
+                <button id="hide-about" py-click="hide_about">&lt; home</button>
                 <h1>About Critical Dream</h1>
                 <br>
                 <div id="about-contents"></div>
@@ -46,11 +49,10 @@
 
         <div id="youtube-player"></div>
 
-        <nav class="navbar">
-            <div class="app-header">
-                <h1 class="title" id="page-title" href="">Critical Dream</h1>
-            </div>
-        </nav>
+        <div class="app-header">
+            <h1 class="title" id="page-title" href="">Critical Dream</h1>
+            <h1><i class="fas fa-dice-d20"></i></h1>
+        </div>
         
         <!-- will be set via PyDom -->
         <div id="page-message">
@@ -64,7 +66,7 @@
                 About
             </button>
             <button>
-                <a href="https://github.com/cosmicBboy/critical-dream" target="_blank">Code</a>
+                <a href="https://github.com/critdream/critdream-app" target="_blank">Code</a>
             </button>
         </div>
 
