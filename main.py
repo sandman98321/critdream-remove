@@ -28,7 +28,7 @@ ABOUT_CONTENTS = """
     <p>
     👋 Welcome! I'm Niels Bantilan, and I built this project as a big fan of
     Critical Role who happens to be a machine learning engineer. I build developer
-    tools for AI/ML engineers engineers at <a href="https://www.union.ai" target="_blank">Union</a>,
+    tools for AI/ML engineers at <a href="https://www.union.ai" target="_blank">Union</a>,
     but I also create independent projects like this one in my spare time.
     <p/>
     
