@@ -204,11 +204,19 @@ def set_episode_dropdown(df):
     select = pydom["select#episode"][0]
     episodes = df.episode_name.unique()
 
+    current_url = js.URL.new(window.location.href)
+    search_params = current_url.searchParams
+    url_episode = str(search_params.get("episode")) or ""
+    console.log(f"url episode: {url_episode}, {type(url_episode)}")
+
     for episode_name in episodes:
         num = episode_name.split("e")[1]
         content = f"Campaign 2 Episode {num}"
+
         option = pydom.create("option", html=content)
         option.value = episode_name
+        if url_episode == episode_name:
+            option.selected = "selected"
         select.append(option)
 
 
@@ -427,6 +435,15 @@ def hide_about(event):
     about_modal.close()
 
 
+@ffi.create_proxy
+def update_episode_query_param(event):
+    current_url = js.URL.new(window.location.href)
+    search_params = current_url.searchParams
+    search_params.set("episode", event.target.value)
+    new_url = f"{current_url.origin}{current_url.pathname}?{search_params.toString()}"
+    window.history.pushState(None, "", new_url)
+
+
 def main():
     console.log("Starting up app...")
     global df, video_id_map
@@ -434,6 +451,11 @@ def main():
     about = document.getElementById("about-contents")
     about.innerHTML = ABOUT_CONTENTS
 
+    # update query parameter whenever episode is selected
+    episode_select = document.getElementById("episode")
+    episode_select.addEventListener("change", update_episode_query_param)
+
+    # load data
     df = load_data()
     video_id_map = df.groupby("episode_name").youtube_id.first()
     log(f"data {df.head()}")
