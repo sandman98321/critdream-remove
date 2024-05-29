@@ -86,7 +86,7 @@ ABOUT_CONTENTS = """
         <li>
         🚫 I have not monetized this website, nor do I have any plans on monetizing
         it without some kind of profit-sharing agreement in place with the
-        credited artists. It will remain monitization-free otherwise.
+        credited artists. It will remain free and unmonitized otherwise.
         </li>
 
         <li>
@@ -113,8 +113,10 @@ ABOUT_CONTENTS = """
     Credits
     </h2>
 
-    The artists and metadata used for creating the training data are documented
+    <p>
+    The metadata used for creating the training data is documented
     <a href="https://raw.githubusercontent.com/critdream/critdream-app/main/credits.yaml" target="_blank">here</a>.
+    </p>
 
     <br>
 
