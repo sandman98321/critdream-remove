@@ -91,8 +91,7 @@ ABOUT_CONTENTS = """
 
         <li>
         🏞️ For full transparency, the fine-tuning data for Critical Role-specific
-        characters are documented and credited
-        <a href="https://github.com/cosmicBboy/critical-dream" target="_blank">here</a>.
+        characters are documented and credited below.
         </li>
 
         <li>
@@ -113,6 +112,9 @@ ABOUT_CONTENTS = """
     <h2>
     Credits
     </h2>
+
+    The artists and metadata used for creating the training data are documented
+    <a href="https://raw.githubusercontent.com/critdream/critdream-app/main/credits.yaml" target="_blank">here</a>.
 
     <br>
 
