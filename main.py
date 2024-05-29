@@ -79,15 +79,14 @@ ABOUT_CONTENTS = """
     </p>
     
     <p>
-    According to this belief, here are the design decisions that I laid out
-    to guide this project:
+    According to this premise, here are the design decisions that guide this project:
     </p>
 
     <ul>
         <li>
         🚫 I have not monetized this website, nor do I have any plans on monetizing
         it without some kind of profit-sharing agreement in place with the
-        credited artists.
+        credited artists. It will remain monitization-free otherwise.
         </li>
 
         <li>
@@ -97,9 +96,9 @@ ABOUT_CONTENTS = """
         </li>
 
         <li>
-        🤖 The model and training code will not be open sourced until the license
-        and usage parameters of the model are agreed upon by myself and the
-        credited artists.
+        🤖 The model and training code will not be open sourced until the model
+        license and usage parameters of the model are agreed upon by myself and the
+        credited artists. It will remain closed source otherwise.
         </li>
 
         <li>
@@ -108,6 +107,12 @@ ABOUT_CONTENTS = """
         divert views from their channel.
         </li>
     </ul>
+
+    <br>
+
+    <h2>
+    Credits
+    </h2>
 
     <br>
 
@@ -398,7 +403,7 @@ def on_state_change(event):
         # user jumps to different part of the video
         update_speaker()
         last_scene_time = 0
-
+    
 
 @ffi.create_proxy
 def resize_iframe(event):
