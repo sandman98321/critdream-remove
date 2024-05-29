@@ -114,7 +114,7 @@ ABOUT_CONTENTS = """
     </h2>
 
     <p>
-    The metadata used for creating the training data is documented
+    The artists are credited and training metadata for the image generation model are documented
     <a href="https://raw.githubusercontent.com/critdream/critdream-app/main/credits.yaml" target="_blank">here</a>.
     </p>
 
