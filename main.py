@@ -3,19 +3,19 @@
 import pandas as pd
 import js
 import random
+from functools import lru_cache
 from pyweb import pydom
 from pyodide.http import open_url
 from pyscript import window, document, display, ffi
 from js import console
 
 
-data_url = (
-    "https://huggingface.co/datasets/cosmicBboy/"
-    "critical-dream-aligned-scenes-mighty-nein-v1/raw/main/aligned_scenes.csv"
-)
+hf_url_root = "https://huggingface.co/datasets/cosmicBboy"
+data_url_root = f"{hf_url_root}/critical-dream-aligned-scenes-mighty-nein-v2/raw/main"
+video_id_url = f"{data_url_root}/video_id_map.csv"
+data_url_template = f"{data_url_root}/aligned_scenes_{{episode_name}}.csv"
 image_url_template = (
-    "https://huggingface.co/datasets/cosmicBboy/"
-    "critical-dream-scene-images-mighty-nein-v1/resolve/main/"
+    f"{hf_url_root}/critical-dream-scene-images-mighty-nein-v1/resolve/main/"
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
@@ -143,7 +143,10 @@ ABOUT_CONTENTS = """
 
     <p>
     If you want to discuss topics like this and get involved with this project,
-    please feel free to join the <a href="https://discord.gg/AEUvh7QpGP" target="_blank">discord channel</a>.
+    please join me in the
+    <a href="https://discord.gg/AEUvh7QpGP" target="_blank">
+        discord channel <i class="fa-brands fa-discord"></i>
+    </a>.
     </p>
 
 
@@ -237,6 +240,8 @@ EPISODE_BREAKS = {
     "c2e003": (7992, 8921),
 }
 
+EPISODE_NAMES = [*EPISODE_STARTS]
+
 SCENE_DURATION = 5
 
 
@@ -249,8 +254,13 @@ scene_id = None
 last_scene_time = 0
 
 
+@lru_cache
+def load_video_id_map() -> pd.DataFrame:
+    return pd.read_csv(open_url(video_id_url)).set_index("episode_name")["youtube_id"]
 
-def load_data():
+
+@lru_cache
+def load_data(episode_name: str) -> pd.DataFrame:
 
     def scene_name(df):
         return "scene_" + df.scene_id.astype(str).str.pad(3, fillchar="0")
@@ -259,6 +269,7 @@ def load_data():
         mid = (df["end_time"] - df["start_time"]) / 2
         return df["start_time"] + mid
 
+    data_url = data_url_template.format(episode_name=episode_name)
     return (
         pd.read_csv(open_url(data_url))
         .rename(columns={"start": "start_time", "end": "end_time"})
@@ -274,17 +285,27 @@ def log(message):
     console.log(message)  # log to JS console
 
 
-def set_episode_dropdown(df):
-    select = pydom["select#episode"][0]
-    episodes = df.episode_name.unique()
-
+def get_url_episode() -> str:
     current_url = js.URL.new(window.location.href)
     search_params = current_url.searchParams
-    url_episode = str(search_params.get("episode")) or ""
+    url_episode = search_params.get("episode") or ""
+    return url_episode
+
+
+def set_episode_dropdown():
+    select = pydom["select#episode"][0]
+
+    url_episode = get_url_episode()
     console.log(f"url episode: {url_episode}, {type(url_episode)}")
 
-    for episode_name in episodes:
+    for episode_name in EPISODE_NAMES:
         num = episode_name.split("e")[1]
+
+        # this is a hack to fix the episode number for episode 100, since that
+        # was mistakenly labeled when the original caption data was created
+        if int(num) > 100:
+            num = str(int(num) - 1).zfill(3)
+
         content = f"Campaign 2 Episode {num}"
 
         option = pydom.create("option", html=content)
@@ -295,11 +316,12 @@ def set_episode_dropdown(df):
 
 
 def set_current_episode(event):
-    global player, video_id_map
+    global df, player, video_id_map
 
     episode_name = document.getElementById("episode").value
     video_id = video_id_map[episode_name]
     console.log(f"video id: {video_id}")
+    df = load_data(episode_name)
     # set video on the youtube player
     player.cueVideoById(video_id)
 
@@ -545,20 +567,24 @@ def main():
     about = document.getElementById("about-contents")
     about.innerHTML = ABOUT_CONTENTS
 
+    video_id_map = load_video_id_map()
+    log(f"video id map {video_id_map}")
+
+    # load data
+    episode_name_on_start = get_url_episode()
+    df = load_data(episode_name_on_start or EPISODE_NAMES[0])
+    log(f"data {df.head()}")
+
     # update query parameter whenever episode is selected
     episode_select = document.getElementById("episode")
     episode_select.addEventListener("change", update_episode_query_param)
 
-    # load data
-    df = load_data()
-    video_id_map = df.groupby("episode_name").youtube_id.first()
-    log(f"data {df.head()}")
-    log(f"video id map {video_id_map}")
-
     # set dropdown values and set current episode onchange function
-    set_episode_dropdown(df)
+    set_episode_dropdown()
     episode_selector = document.getElementById("episode")
     episode_selector.onchange = set_current_episode
+
+    console.log("HEY")
 
     # create youtube player
     create_youtube_player()

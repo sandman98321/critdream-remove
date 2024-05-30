@@ -54,9 +54,11 @@ button#hide-about {
 #custom-player button {
     font-size: 1.3em;
     background-color: transparent;
-    padding: 6px 32px;
+    padding: 6px 30px;
     color: #7f6464;
     border: 2px solid #301515;
+    border-bottom: 5px solid #301515;
+    border-right: 5px solid #301515;
     border-radius: 4px;
     margin: 12px 4px;
 }
