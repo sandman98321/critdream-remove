@@ -509,6 +509,23 @@ def hide_about(event):
     about_modal.close()
 
 
+def skip_intro(event):
+    global player
+
+    episode_name = document.getElementById("episode").value
+    start_seconds = EPISODE_STARTS[episode_name]
+    player.seekTo(start_seconds)
+
+
+
+def skip_break(event):
+    global player
+
+    episode_name = document.getElementById("episode").value
+    start_seconds = EPISODE_BREAKS[episode_name][1]
+    player.seekTo(start_seconds)
+
+
 @ffi.create_proxy
 def update_episode_query_param(event):
     current_url = js.URL.new(window.location.href)

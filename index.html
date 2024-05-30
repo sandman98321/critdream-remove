@@ -60,8 +60,8 @@
         <div id="youtube-player"></div>
 
         <div class="app-header">
-            <h1 class="title" id="page-title" href="">Critical Dream</h1>
             <h1><i class="fas fa-dice-d20"></i></h1>
+            <h1 class="title" id="page-title" href="">Critical Dream</h1>
         </div>
         
         <!-- will be set via PyDom -->
@@ -73,18 +73,32 @@
 
         <div id="info-buttons">
             <button id="show-about" py-click="show_about">
-                About
+                <i class="fa-solid fa-circle-info"></i>
             </button>
             <button>
-                <a href="https://github.com/critdream/critdream-app" target="_blank">Code</a>
+                <a href="https://github.com/critdream/critdream-app" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </button>
+            <button>
+                <a href="https://discord.gg/AEUvh7QpGP" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
             </button>
         </div>
 
-        <br />
+        <br>
+        <br>
 
-        <div id="choose-episode">
+        <div id="custom-player">
             <select name="episode" id="episode">
             </select>
+            <button id="skip-intro" py-click="skip_intro">
+                Skip intro
+            </button>
+            <button id="skip-break" py-click="skip_break">
+                Skip break
+            </button>
         </div>
 
         <br>

@@ -12,7 +12,7 @@ h1, h2 {
     margin-bottom: 15px;
 }
 
-h1, #page-message, #info-buttons {
+h1, #page-message, #info-buttons, #custom-player {
     text-align: center;
     color: #9e8383;
 }
@@ -40,10 +40,24 @@ div#page-message, #info-buttons button {
     font-size: 1.5em;
 }
 
-button#hide-about {
-    font-size: 2em;
+button#hide-about,
+#custom-player button {
     background: #3d1b1b;
     border: none;
+}
+
+button#hide-about {
+    font-size: 2em;
+}
+
+#custom-player button {
+    font-size: 1.3em;
+    background-color: transparent;
+    padding: 6px 32px;
+    color: #7f6464;
+    border: 1px solid #130707;
+    border-radius: 4px;
+    margin: 12px 4px;
 }
 
 div#about-contents {
@@ -62,6 +76,7 @@ div#about-contents {
     border-radius: 4px;
     padding: 5px 15px;
     margin: 0 2px;
+    font-size: 2em;
 }
 
 button a,
