@@ -157,7 +157,7 @@ ABOUT_CONTENTS = """
     <p>
     The data used to fine-tune the model was sourced from the following artists
     below. The training metadata for the image generation model is documented
-    <a href="https://raw.githubusercontent.com/critdream/critdream-app/main/credits.yaml" target="_blank">here</a>.
+    <a href="https://github.com/critdream/critdream-app/blob/main/credits.yaml" target="_blank">here</a>.
     </p>
 
     <ul>
