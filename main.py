@@ -430,9 +430,12 @@ def on_youtube_frame_api_ready():
     player = window.YT.Player.new(
         "player",
         videoId="byva0hOj8CU",
-        playerVars=ffi.to_js({
-            "cc_load_policy": 1,
-        })
+        playerVars=ffi.to_js(
+            {
+                "cc_load_policy": 1,  # load captions by default
+                "rel": 0,  # don't show related videos at end of initial play
+            }
+        )
     )
     player.addEventListener("onReady", on_ready)
     player.addEventListener("onStateChange", on_state_change)
