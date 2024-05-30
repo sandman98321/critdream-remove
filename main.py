@@ -110,22 +110,11 @@ ABOUT_CONTENTS = """
     <br>
 
     <h2>
-    Credits
+    To the artists
     </h2>
 
     <p>
-    The artists are credited and training metadata for the image generation model are documented
-    <a href="https://raw.githubusercontent.com/critdream/critdream-app/main/credits.yaml" target="_blank">here</a>.
-    </p>
-
-    <br>
-
-    <h2>
-    To the credited artists
-    </h2>
-
-    <p>
-    Beyond the entertainment value of Critical Dream, I built this project
+    Beyond the personal entertainment value of Critical Dream, I built this project
     because I also want to spur a different kind of discourse at the intersection
     of Art and AI by engaging with you and the creative community more broadly.
     </p>
@@ -156,6 +145,82 @@ ABOUT_CONTENTS = """
     If you want to discuss topics like this and get involved with this project,
     please feel free to join the <a href="https://discord.gg/AEUvh7QpGP" target="_blank">discord channel</a>.
     </p>
+
+
+    <h2>
+    Credits
+    </h2>
+
+    <p>
+    The data used to fine-tune the model was sourced from the following artists
+    below. The training metadata for the image generation model is documented
+    <a href="https://raw.githubusercontent.com/critdream/critdream-app/main/credits.yaml" target="_blank">here</a>.
+    </p>
+
+    <ul>
+        <li><a href="https://brandiyorkart.com" target="_blank">Brandy York</a></li>
+        <li><a href="https://www.deviantart.com/eljore/gallery" target="_blank">Joré Escalera</a></li>
+        <li><a href="https://pabloagurcia.artstation.com/" target="_blank">Pablo Agurcia</a></li>
+        <li><a href="https://www.etsy.com/shop/AstralTigerArt" target="_blank">Kerri Aitken</a></li>
+        <li><a href="https://www.hannahfriederichs.com/" target="_blank">Hannah Friederichs</a></li>
+        <li><a href="https://ko-fi.com/ornerine" target="_blank">Ari Orner</a></li>
+        <li><a href="https://ko-fi.com/morgalahan" target="_blank">Stacey Reilander</a></li>
+        <li><a href="https://x.com/42paintbrushes" target="_blank">Charis Draws</a></li>
+        <li><a href="https://hailiiz.carrd.co/" target="_blank">Hailiiz</a></li>
+        <li><a href="https://aaronsimon.artstation.com/" target="_blank">Aaron Simon</a></li>
+        <li><a href="https://0eitan0.tumblr.com" target="_blank">Eitan</a></li>
+        <li><a href="https://cameronmccafferty.tumblr.com" target="_blank">Cameron McCafferty</a></li>
+        <li><a href="https://redbiasca3d.artstation.com/" target="_blank">Red Biasca</a></li>
+        <li><a href="https://www.instagram.com/littleulvar/" target="_blank">Ulvar</a></li>
+        <li><a href="https://scoutvart.myportfolio.com/" target="_blank">Scout Villegas</a></li>
+        <li><a href="https://vamtaro.artstation.com/" target="_blank">Laura Ambrosiano</a></li>
+        <li><a href="https://porzio-art.carrd.co/" target="_blank">Porzio</a></li>
+        <li><a href="https://www.reddit.com/user/MGillArt/" target="_blank">MartinGillArt</a></li>
+        <li><a href="https://linktr.ee/travisearls" target="_blank">Travis Earls</a></li>
+        <li><a href="https://jaydrlove.tumblr.com/" target="_blank">jaydrlove</a></li>
+        <li><a href="https://www.deviantart.com/ktshy/gallery" target="_blank">Katie Shanahan</a></li>
+        <li><a href="https://jace_d.artstation.com/" target="_blank">Jace Daily</a></li>
+        <li><a href="https://linktr.ee/heartofpack" target="_blank">HeartofPack</a></li>
+        <li><a href="https://www.patreon.com/offbeatworlds" target="_blank">Stephanie Brown</a></li>
+        <li><a href="https://www.artstation.com/nelmdraws" target="_blank">Chris Nelson</a></li>
+        <li><a href="https://x.com/elimnebe" target="_blank">Elimnebe</a></li>
+        <li><a href="https://layaart.tumblr.com/" target="_blank">Laya Rose</a></li>
+        <li><a href="https://ninzja.artstation.com/" target="_blank">Vi Viro</a></li>
+        <li><a href="https://www.linkedin.com/in/matt-molen-8797406a/" target="_blank">Matt Molen</a></li>
+        <li><a href="https://www.linkedin.com/in/rachel-roubicek-32008116a/" target="_blank">Rachel Roubicek</a></li>
+        <li><a href="https://www.instagram.com/chieizuma" target="_blank">Chie Izuma</a></li>
+        <li><a href="https://www.tumblr.com/battletailors" target="_blank">Ayzek V Kass</a></li>
+        <li><a href="https://theminttu.tumblr.com/" target="_blank">Minttu Hynninen</a></li>
+        <li><a href="https://linktr.ee/heartofpack" target="_blank">HeartofPack</a></li>
+        <li><a href="https://www.reddit.com/user/Milakangelo/" target="_blank">Milakangelo</a></li>
+        <li><a href="https://www.artstation.com/sinadraws" target="_blank">Sina Rupp</a></li>
+        <li><a href="https://www.toribennett.com/" target="_blank">Tori Bennett</a></li>
+        <li><a href="https://x.com/MintScribble" target="_blank">Natalia Thomson</a></li>
+        <li><a href="https://casukaga.tumblr.com/" target="_blank">casu</a></li>
+        <li><a href="https://www.pinterest.com/pin/nott-the-brave--629167010428717201/" target="_blank">Mr. Weiss</a></li>
+        <li><a href="https://linktr.ee/mikandii" target="_blank">Ameera Shiekh</a></li>
+        <li><a href="https://kubaryi.artstation.com/" target="_blank">Kynareth9</a></li>
+        <li><a href="https://larndraws.tumblr.com" target="_blank">Lauren Rowland</a></li>
+        <li><a href="https://ko-fi.com/fires" target="_blank">Carolina Abrantes</a></li>
+        <li><a href="https://t.co/NKmh0v83DN" target="_blank">Anna Janiszewska (Rammaru)</a></li>
+        <li><a href="https://ko-fi.com/disarmonia" target="_blank">Veronica Anrathi (Disarmonia)</a></li>
+        <li><a href="https://x.com/atutcha" target="_blank">Atutcha</a></li>
+        <li><a href="https://x.com/krianath" target="_blank">krianath</a></li>
+        <li><a href="https://www.artstation.com/letimvila" target="_blank">Leti M. Vila</a></li>
+        <li><a href="https://petyritonel.tumblr.com/" target="_blank">petyritonel</a></li>
+        <li><a href="https://larndraws.tumblr.com/" target="_blank">Lauren Rowlands</a></li>
+        <li><a href="https://yettinim.tumblr.com/" target="_blank">Yettinim</a></li>
+        <li><a href="https://x.com/ElesirArt" target="_blank">elesir</a></li>
+        <li><a href="https://www.patreon.com/rosygloomart" target="_blank">Rosy Gloom</a></li>
+        <li><a href="https://www.reddit.com/user/jamilabeth/" target="_blank">jamilabeth</a></li>
+        <li><a href="https://aminoapps.com/c/art/page/user/fires-00/33hM_fGz5rzD6vKQl2x1j3jngpd7BB" target="_blank">fires-00</a></li>
+        <li><a href="https://www.pinterest.com/rayoagares/" target="_blank">Александр Кувшинов</a></li>
+        <li><a href="https://www.patreon.com/deerlordhunter" target="_blank">Hunter Bonyun</a></li>
+        <li><a href="https://boosty.to/viciousmongrel" target="_blank">Vicious Mongrel</a></li>
+        <li><a href="https://ko-fi.com/elibear" target="_blank">Elliott</a></li>
+        <li><a href="https://saturdaysky.tumblr.com/" target="_blank">saturdaysky</a></li>
+        <li><a href="https://passingthegravesoftheunknown.tumblr.com/" target="_blank">Cristina Anaya (CristinaAnaya96)</a></li>
+    </ul>
 
 </div>
 """

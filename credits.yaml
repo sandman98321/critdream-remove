@@ -120,7 +120,7 @@
     source: https://criticalrole.fandom.com/wiki/Headband_of_Intellect
     url: https://pbs.twimg.com/media/EHqy091X4AMQjXJ.jpg
   - creator: MartinGillArt
-    creator_website: -
+    creator_website: https://www.reddit.com/user/MGillArt/
     source: https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fj62orybeyn491.jpg
     url: https://i.redd.it/j62orybeyn491.jpg
   - creator: Hailiiz
@@ -187,8 +187,8 @@
     creator_website: https://www.artstation.com/nelmdraws
     source: https://criticalrole.fandom.com/wiki/Caduceus_Clay
     url: https://static.wikia.nocookie.net/criticalrole/images/9/98/IMG_20180728_114227.jpg
-  - creator: Ellie
-    creator_website: Not available
+  - creator: Elimnebe
+    creator_website: https://x.com/elimnebe
     source: https://criticalrole.fandom.com/wiki/Caduceus_Clay
     url: https://static.wikia.nocookie.net/criticalrole/images/a/a8/Caduceus_-_Elimnebe.jpg
   - creator: Laya Rose
@@ -247,8 +247,8 @@
     creator_website: https://www.reddit.com/user/Milakangelo/
     source: https://www.reddit.com/r/DnD/comments/pmqcdy/art_caleb_from_critical_role_by_milakangelo/
     url: https://i.redd.it/1cy1vjfru1n71.jpg
-  - creator: -
-    creator_website: -
+  - creator: Not found
+    creator_website: Not found
     source: https://secretcompassonline.com/products/critical-role-mighty-nein-caleb-widogast
     url: https://secretcompassonline.com/cdn/shop/files/caleb-widogast-mighty-nein_critical-role_gallery_64e6a03b0d0fe_1200x800.jpg
   - creator: Ari Orner
@@ -355,12 +355,12 @@
     creator_website: https://www.artstation.com/redbiasca3d
     source: https://www.artstation.com/artwork/3daAkA
     url: https://static.wikia.nocookie.net/criticalrole/images/9/9c/Veth_-_Retrobot3d.jpg
-  - creator: Ameera
+  - creator: Ameera Shiekh
     creator_website: https://linktr.ee/mikandii
     source: https://twitter.com/Mikandii/status/1286015561441443842
     url: https://static.wikia.nocookie.net/criticalrole/images/0/0d/Veth_-_Ameera.jpg
   - creator: Kynareth9
-    creator_website: -
+    creator_website: https://kubaryi.artstation.com/
     source: https://www.reddit.com/r/criticalrole/comments/iayxgv/no_spoilers_veth_portrait_i_just_finished/
     url: https://i.redd.it/ymjksfbc4fh51.png
   - creator: Lauren Rowland
@@ -415,7 +415,7 @@
     creator_website: https://x.com/atutcha
     source: https://criticalrole.fandom.com/wiki/Yasha_Nydoorin?file=Critical_role_yasha_by_atutcha-dc0iuov-1.jpg
     url: https://static.wikia.nocookie.net/criticalrole/images/2/2c/Critical_role_yasha_by_atutcha-dc0iuov-1.jpg
-  - creator: @krianath
+  - creator: krianath
     creator_website: https://x.com/krianath
     source: https://x.com/krianath/status/1134273882083381248
     url: https://pbs.twimg.com/media/D72_-eiV4AANCoc.jpg
@@ -451,7 +451,7 @@
   class_data_root: data/male_tiefling_blood_hunter
   class_prompt: "a picture of a male tiefling blood hunter"
   instance_urls:
-  - creator: Ari
+  - creator: Ari Order
     creator_website: https://ko-fi.com/ornerine
     source: https://criticalrole.fandom.com/wiki/Mollymauk_Tealeaf
     url: https://static.wikia.nocookie.net/criticalrole/images/c/ce/Mollymauk.jpg
