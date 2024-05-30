@@ -59,64 +59,67 @@
 
         <div id="youtube-player"></div>
 
-        <div class="app-header">
-            <h1><i class="fas fa-dice-d20"></i></h1>
-            <h1 class="title" id="page-title" href="">Critical Dream</h1>
-        </div>
-        
-        <!-- will be set via PyDom -->
-        <div id="page-message">
-            Watch Critical Role with AI-sampled scenes.
-        </div>
+        <!-- keep main display hidden until everything's loaded -->
+        <div id="app-container" style="opacity: 0">
+            <div class="app-header">
+                <h1><i class="fas fa-dice-d20"></i></h1>
+                <h1 class="title" id="page-title" href="">Critical Dream</h1>
+            </div>
+            
+            <!-- will be set via PyDom -->
+            <div id="page-message">
+                Watch Critical Role with AI-sampled scenes.
+            </div>
 
-        <br />
+            <br />
 
-        <div id="info-buttons">
-            <button id="show-about" py-click="show_about">
-                <i class="fa-solid fa-circle-info"></i>
-            </button>
-            <button>
-                <a href="https://github.com/critdream/critdream-app" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </button>
-            <button>
-                <a href="https://discord.gg/AEUvh7QpGP" target="_blank">
-                    <i class="fa-brands fa-discord"></i>
-                </a>
-            </button>
-        </div>
+            <div id="info-buttons">
+                <button id="show-about" py-click="show_about">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
+                <button>
+                    <a href="https://github.com/critdream/critdream-app" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </button>
+                <button>
+                    <a href="https://discord.gg/AEUvh7QpGP" target="_blank">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                </button>
+            </div>
 
-        <br>
-        <br>
+            <br>
+            <br>
 
-        <div id="custom-player">
-            <select name="episode" id="episode">
-            </select>
-            <button id="skip-intro" py-click="skip_intro">
-                Skip intro
-            </button>
-            <button id="skip-break" py-click="skip_break">
-                Skip break
-            </button>
-        </div>
+            <div id="custom-player">
+                <select name="episode" id="episode">
+                </select>
+                <button id="skip-intro" py-click="skip_intro">
+                    Skip intro
+                </button>
+                <button id="skip-break" py-click="skip_break">
+                    Skip break
+                </button>
+            </div>
 
-        <br>
+            <br>
 
-        <div id="data-output" hidden>
-            <div id="data-output-inner"></div>
-        </div>
+            <div id="data-output" hidden>
+                <div id="data-output-inner"></div>
+            </div>
 
-        <div class="container" id="video-container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="player-container" id="player-container">
-                        <div id="player"></div>
+            <div class="container" id="video-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="player-container" id="player-container">
+                            <div id="player"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div id="image">
-                        <img id="current-image" width="100%">
+                    <div class="col-md-6">
+                        <div id="image">
+                            <img id="current-image" width="100%">
+                        </div>
                     </div>
                 </div>
             </div>

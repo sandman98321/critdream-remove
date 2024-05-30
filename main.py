@@ -465,8 +465,13 @@ def on_youtube_frame_api_ready():
 
 @ffi.create_proxy
 def close_modal():
+    # remove loading screen
     loading = document.getElementById('loading')
     loading.close()
+
+    # unhide the app container
+    app_container = document.getElementById('app-container')
+    app_container.style.opacity = "1"
 
 
 @ffi.create_proxy
@@ -583,8 +588,6 @@ def main():
     set_episode_dropdown()
     episode_selector = document.getElementById("episode")
     episode_selector.onchange = set_current_episode
-
-    console.log("HEY")
 
     # create youtube player
     create_youtube_player()
