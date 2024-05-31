@@ -46,12 +46,13 @@ ABOUT_CONTENTS = """
     <p>
     The Critical Dream image generation model does its best to render what's
     happening in the episodes as they happen, but you'll notice weird
-    things like extra fingers, floating horns, and pointy-earred Caleb and Beau.
+    things like extra fingers, floating horns, nonsensical imagery, and
+    pointy-earred Caleb and Beau.
     </p>
 
     <p>
     There's a lot to improve, but honestly I kind of like the fact that the model
-    sometimes produces epic looking scenes, but most of the time it's
+    sometimes produces epic looking scenes, but a lot of the time it's
     cursed, djanky-looking portraits of the characters 🫠.
     </p>
 
@@ -69,8 +70,7 @@ ABOUT_CONTENTS = """
     brought Critical Role's cast of characters to life. To create the Critical
     Dream image generation model, I fined-tuned
     <a href="https://huggingface.co/papers/2307.01952" target="_blank">Stable Diffusion XL</a>
-    on this art, and I do not take this act lightly because
-    
+    on this art. I do not take this act lightly because
     <strong><i>
     the data is the foundation of the model, and I believe that those creating
     the data have a right to the monetary gains resulting from the model.
@@ -85,12 +85,12 @@ ABOUT_CONTENTS = """
     <ul>
         <li>
         🚫 I have not monetized this website, nor do I have any plans on monetizing
-        it without some kind of profit-sharing agreement in place with the
+        it without some kind of revenue-sharing agreement in place with the
         credited artists. It will remain free and unmonitized otherwise.
         </li>
 
         <li>
-        🏞️ For full transparency, the fine-tuning data for Critical Role-specific
+        🏞️ For full transparency, the fine-tuning metadata for Critical Role-specific
         characters are documented and credited below.
         </li>
 
@@ -141,14 +141,21 @@ ABOUT_CONTENTS = """
     engineers?
     </blockquote>
 
+    <br>
+
+    <h2>
+    Get involved
+    </h2>
+
     <p>
-    If you want to discuss topics like this and get involved with this project,
+    If you want to discuss topics like this and drive the future of this project,
     please join me in the
     <a href="https://discord.gg/AEUvh7QpGP" target="_blank">
         discord channel <i class="fa-brands fa-discord"></i>
     </a>.
     </p>
 
+    <br>
 
     <h2>
     Credits
@@ -160,7 +167,7 @@ ABOUT_CONTENTS = """
     <a href="https://github.com/critdream/critdream-app/blob/main/credits.yaml" target="_blank">here</a>.
     </p>
 
-    <ul>
+    <ul class="columns">
         <li><a href="https://brandiyorkart.com" target="_blank">Brandy York</a></li>
         <li><a href="https://www.deviantart.com/eljore/gallery" target="_blank">Joré Escalera</a></li>
         <li><a href="https://pabloagurcia.artstation.com/" target="_blank">Pablo Agurcia</a></li>
@@ -424,7 +431,11 @@ def update_speaker():
     new_speaker = scene["speaker"]
     new_character = scene["character"]
     new_scene_id = scene["scene_id"]
-    console.log(f"current speaker: {speaker}, character: {character}, new_scene_id: {new_scene_id}")
+    console.log(
+        f"current speaker: {speaker}, "
+        f"character: {character}, "
+        f"new_scene_id: {new_scene_id}"
+    )
 
     update_scene = False
     if (current_time - last_scene_time) > SCENE_DURATION:
@@ -437,7 +448,11 @@ def update_speaker():
         character != new_character
         or scene_id != new_scene_id
     ):
-        console.log(f"update image | speaker: {speaker}, character: {character} new_scene_id: {new_scene_id}")
+        console.log(
+            f"update image | speaker: {speaker}, "
+            f"character: {character} "
+            f"new_scene_id: {new_scene_id}"
+        )
         speaker = new_speaker
         character = new_character
         scene_id = new_scene_id
@@ -455,7 +470,6 @@ def on_youtube_frame_api_ready():
         playerVars=ffi.to_js(
             {
                 "cc_load_policy": 1,  # load captions by default
-                "rel": 0,  # don't show related videos at end of initial play
             }
         )
     )

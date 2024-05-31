@@ -48,7 +48,7 @@ button#hide-about,
 }
 
 button#hide-about {
-    font-size: 2em;
+    font-size: 4em;
 }
 
 #custom-player button {
@@ -76,8 +76,8 @@ div#about-contents {
 #info-buttons button {
     background: #532f2f;
     border: none;
-    border-bottom: 4px solid #6e4949;
-    border-right: 4px solid #6e4949;
+    border-bottom: 3px solid #6e4949;
+    border-right: 3px solid #6e4949;
     border-radius: 4px;
     padding: 5px 15px;
     margin: 0 2px;
@@ -119,6 +119,11 @@ select#episode:focus {
     outline: none;
 }
 
+dialog:modal {
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
 dialog::backdrop {
     background: #3d1b1b;;
 }
@@ -133,8 +138,9 @@ dialog {
     padding: 0;
 }
 
-dialog div {
-    max-width: 750px;
+dialog > div {
+    padding: 30px;
+    max-width: 100%;
 }
 
 img#current-image {
@@ -180,8 +186,28 @@ div#about-contents strong {
     font-weight: 900;
 }
 
+ul.columns {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
 html::-webkit-scrollbar,
 dialog#about::-webkit-scrollbar,
 dialog#loading::-webkit-scrollbar {
     display: none;
+}
+
+@media screen and (min-width: 800px) {
+    dialog > div {
+        padding-right: 20%;
+        padding-left: 20%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    dialog > div {
+        padding-right: 28%;
+        padding-left: 28%;
+    }
 }
