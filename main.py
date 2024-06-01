@@ -131,11 +131,11 @@ ABOUT_CONTENTS = """
     At the same time, other organizations publish their models as open source
     or open weights. While this is great for AI research, this also breaks the
     creative value chain because it commoditizes the work pain-stakingly produced
-    by people. The question I ask myself as I develop this project is:
+    by artists. The question I ask myself as I develop this project is:
     </p>
 
     <blockquote>
-    Is there a healthier way to organize creative and technical ecosystems on the
+    Is there a better way to organize creative and technical ecosystems on the
     internet so that we can all create cool things while appropriately crediting
     and compensating all of the stakeholders in the ecosystem, from creators to
     engineers?
@@ -167,7 +167,7 @@ ABOUT_CONTENTS = """
     <a href="https://github.com/critdream/critdream-app/blob/main/credits.yaml" target="_blank">here</a>.
     </p>
 
-    <ul class="columns">
+    <ul id="credits" class="columns">
         <li><a href="https://brandiyorkart.com" target="_blank">Brandy York</a></li>
         <li><a href="https://www.deviantart.com/eljore/gallery" target="_blank">Joré Escalera</a></li>
         <li><a href="https://pabloagurcia.artstation.com/" target="_blank">Pablo Agurcia</a></li>
@@ -249,7 +249,7 @@ EPISODE_BREAKS = {
 
 EPISODE_NAMES = [*EPISODE_STARTS]
 
-SCENE_DURATION = 5
+SCENE_DURATION = 10
 
 
 speaker_update_interval_id = None
@@ -388,7 +388,7 @@ def find_scene(
 def update_image():
     global df, player, speaker, character
 
-    current_time = float(player.getCurrentTime())
+    current_time = float(player.getCurrentTime() or 0.0)
     episode_name = document.getElementById("episode").value
 
     scene_name = find_scene(
@@ -424,7 +424,7 @@ def update_image():
 def update_speaker():
     global df, player, speaker, character, scene_id, last_scene_time
 
-    current_time = float(player.getCurrentTime())
+    current_time = float(player.getCurrentTime() or 0.0)
     episode_name = document.getElementById("episode").value
     scene = find_scene(episode_name, df, current_time)
 
@@ -438,14 +438,18 @@ def update_speaker():
     )
 
     update_scene = False
+    exceeds_scene_duration = False
     if (current_time - last_scene_time) > SCENE_DURATION:
+        exceeds_scene_duration = True
         update_scene = True
         last_scene_time = current_time
     elif current_time == 0:
         update_scene = True
+        last_scene_time = current_time
 
     if update_scene and (
-        character != new_character
+        exceeds_scene_duration
+        or character != new_character
         or scene_id != new_scene_id
     ):
         console.log(
@@ -558,7 +562,15 @@ def skip_intro(event):
 
     episode_name = document.getElementById("episode").value
     start_seconds = EPISODE_STARTS[episode_name]
-    player.seekTo(start_seconds)
+
+    @ffi.create_proxy
+    def seek():
+        console.log(f"seeking to {start_seconds}")
+        player.seekTo(start_seconds)
+
+    seek()
+    # sometimes the seekTo function doesn't work due to user's prior playback state
+    js.setTimeout(seek, 100)
 
 
 

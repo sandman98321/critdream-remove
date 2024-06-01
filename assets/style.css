@@ -36,7 +36,7 @@ table {
     margin: auto;
 }
 
-div#page-message, #info-buttons button {
+div#page-message {
     font-size: 1.5em;
 }
 
@@ -81,7 +81,7 @@ div#about-contents {
     border-radius: 4px;
     padding: 5px 15px;
     margin: 0 2px;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 button a,
@@ -184,6 +184,12 @@ div#video-container {
 
 div#about-contents strong {
     font-weight: 900;
+}
+
+ul#credits {
+    font-size: 0.9em;
+    list-style: none;
+    padding: 0;
 }
 
 ul.columns {
