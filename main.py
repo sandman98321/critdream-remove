@@ -15,7 +15,7 @@ data_url_root = f"{hf_url_root}/critical-dream-aligned-scenes-mighty-nein-v2/raw
 video_id_url = f"{data_url_root}/video_id_map.csv"
 data_url_template = f"{data_url_root}/aligned_scenes_{{episode_name}}.csv"
 image_url_template = (
-    f"{hf_url_root}/critical-dream-scene-images-mighty-nein-v1/resolve/main/"
+    f"{hf_url_root}/critical-dream-scene-images-mighty-nein-v2/resolve/main/"
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
@@ -508,19 +508,19 @@ def on_ready(event):
 
 @ffi.create_proxy
 def on_state_change(event):
-    global last_scene_time
+    global player, last_scene_time
 
+    current_time = float(player.getCurrentTime() or 0.0)
     console.log(f"[pyscript] youtube player state change {event.data}")
     if int(event.data) in (-1, 1):
         # update speaker and image when new episode is selected (-1) or the
         # user jumps to different part of the video
         update_speaker()
-        last_scene_time = 0
+        last_scene_time = current_time
     
 
 @ffi.create_proxy
 def resize_iframe(event):
-    # log("resizing iframe")
     container = document.getElementById("image")
     image = document.getElementById("current-image")
     iframe = document.getElementById("player")
