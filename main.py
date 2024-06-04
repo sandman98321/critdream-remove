@@ -502,10 +502,6 @@ def on_ready(event):
         speaker_update_interval_id = js.setInterval(update_speaker, SPEAKER_INTERVAL)
         console.log(f"set speaker interval id: {speaker_update_interval_id}")
 
-    if image_update_interval_id is None:
-        # image_update_interval_id = js.setInterval(update_image, UPDATE_INTERVAL)
-        console.log(f"set image interval id: {image_update_interval_id}")
-
     resize_iframe(event)
     js.setTimeout(close_modal, 1500)
 
