@@ -239,12 +239,56 @@ EPISODE_STARTS = {
     "c2e001": 854,
     "c2e002": 504,
     "c2e003": 420,
+    "c2e004": 526,
+    "c2e005": 538,
+    "c2e006": 474,
+    "c2e007": 528,
+    "c2e008": 602,
+    "c2e009": 665,
+    "c2e010": 638,
+    "c2e011": 624,
+    "c2e012": 479,
+    "c2e013": 375,
+    "c2e014": 616,
+    "c2e015": 641,
+    "c2e016": 569,
+    "c2e017": 712,
+    "c2e018": 621,
+    "c2e019": 594,
+    "c2e020": 521,
+    "c2e021": 591,
+    "c2e022": 500,
+    "c2e023": 497,
+    "c2e024": 599,
+    "c2e025": 542,
 }
 
 EPISODE_BREAKS = {
     "c2e001": (5529, 6547),
     "c2e002": (7583, 8470),
     "c2e003": (7992, 8921),
+    "c2e004": (7203, 7885),
+    "c2e005": (10636, 11524),
+    "c2e006": (8406, 9226),
+    "c2e007": (8745, 9481),
+    "c2e008": (5583, 6517),
+    "c2e009": (7083, 7966),
+    "c2e010": (6414, 7297),
+    "c2e011": (6723, 7646),
+    "c2e012": (5529, 6311),
+    "c2e013": (7680, 8504),
+    "c2e014": (5783, 6546),
+    "c2e015": (7157, 8210),
+    "c2e016": (7594, 8343),
+    "c2e017": (7095, 7869),
+    "c2e018": (6665, 7640),
+    "c2e019": (7168, 8358),
+    "c2e020": (8125, 8126),
+    "c2e021": (8560, 8561),
+    "c2e022": (8615, 8616),
+    "c2e023": (6988, 6989),
+    "c2e024": (7988, 7989),
+    "c2e025": (5139, 5140),
 }
 
 EPISODE_NAMES = [*EPISODE_STARTS]
@@ -512,9 +556,9 @@ def on_state_change(event):
 
     current_time = float(player.getCurrentTime() or 0.0)
     console.log(f"[pyscript] youtube player state change {event.data}")
-    if int(event.data) in (-1, 1):
-        # update speaker and image when new episode is selected (-1) or the
-        # user jumps to different part of the video
+    if int(event.data) in (-1, 1, 5):
+        # update speaker and image when new episode is selected (-1, 5) or the
+        # user jumps to different part of the video (1)
         update_speaker()
         last_scene_time = current_time
     
