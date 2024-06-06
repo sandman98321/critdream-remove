@@ -19,6 +19,8 @@ image_url_template = (
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
+APP_VERSION = "2024.06.05a"
+
 NUM_IMAGE_VARIATIONS = 12
 SPEAKER_INTERVAL = 500
 UPDATE_INTERVAL = 15_000
@@ -634,6 +636,9 @@ def update_episode_query_param(event):
 def main():
     console.log("Starting up app...")
     global df, video_id_map
+
+    version = document.getElementById("app-version")
+    version.innerHTML = APP_VERSION
 
     about = document.getElementById("about-contents")
     about.innerHTML = ABOUT_CONTENTS

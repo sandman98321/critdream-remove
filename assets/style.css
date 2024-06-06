@@ -12,7 +12,7 @@ h1, h2 {
     margin-bottom: 15px;
 }
 
-h1, #page-message, #info-buttons, #custom-player {
+h1, p.app-version, #page-message, #info-buttons, #custom-player {
     text-align: center;
     color: #9e8383;
 }
@@ -20,6 +20,10 @@ h1, #page-message, #info-buttons, #custom-player {
 p {
     font-size: 2em;
     margin-bottom: 20px;
+}
+
+p.app-version {
+    font-size: 1em;
 }
 
 li {
