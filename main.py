@@ -19,7 +19,7 @@ image_url_template = (
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
-APP_VERSION = "2024.06.08.2"
+APP_VERSION = "2024.06.08.3"
 
 NUM_IMAGE_VARIATIONS = 12
 NUM_IMAGE_SAMPLE_TRIES = 100
@@ -543,12 +543,15 @@ def update_speaker():
 
 @ffi.create_proxy
 def on_youtube_frame_api_ready():
-    global player
+    global player, video_id_map
+
+    episode_name = document.getElementById("episode").value
+    video_id = video_id_map[episode_name]
 
     console.log("on_youtube_frame_api_ready")
     player = window.YT.Player.new(
         "player",
-        videoId="byva0hOj8CU",
+        videoId=video_id,
         playerVars=ffi.to_js(
             {
                 "cc_load_policy": 1,  # load captions by default
@@ -680,6 +683,7 @@ def main():
 
     # load data
     episode_name_on_start = get_url_episode()
+    console.log(f"episode name on start: {episode_name_on_start}")
     df = load_data(episode_name_on_start or EPISODE_NAMES[0])
     log(f"data {df.head()}")
 
