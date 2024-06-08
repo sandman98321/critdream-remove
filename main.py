@@ -19,9 +19,10 @@ image_url_template = (
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
-APP_VERSION = "2024.06.08.1"
+APP_VERSION = "2024.06.08.2"
 
 NUM_IMAGE_VARIATIONS = 12
+NUM_IMAGE_SAMPLE_TRIES = 100
 SPEAKER_INTERVAL = 500
 UPDATE_INTERVAL = 15_000
 
@@ -315,6 +316,7 @@ speaker = None
 character = None
 scene_id = None
 last_scene_time = 0
+last_image_num = -1
 
 
 @lru_cache
@@ -457,7 +459,7 @@ def find_scene(
 
 @ffi.create_proxy
 def update_image():
-    global df, player, speaker, character
+    global df, player, speaker, character, last_image_num
 
     current_time = float(player.getCurrentTime() or 0.0)
     episode_name = document.getElementById("episode").value
@@ -470,7 +472,12 @@ def update_image():
         character=character,
     )["scene_name"]
 
-    image_num = str(random.randint(0, 11)).zfill(2)
+    for _ in range(NUM_IMAGE_SAMPLE_TRIES):
+        image_num = str(random.randint(0, NUM_IMAGE_VARIATIONS - 1)).zfill(2)
+        if image_num != last_image_num:
+            last_image_num = image_num
+            break
+
     image_url = image_url_template.format(
         episode_name=episode_name, scene_name=scene_name, image_num=image_num
     )
