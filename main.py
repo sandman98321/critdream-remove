@@ -19,7 +19,7 @@ image_url_template = (
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
-APP_VERSION = "2024.06.05a"
+APP_VERSION = "2024.06.08.1"
 
 NUM_IMAGE_VARIATIONS = 12
 SPEAKER_INTERVAL = 500
@@ -297,6 +297,16 @@ EPISODE_NAMES = [*EPISODE_STARTS]
 
 SCENE_DURATION = 10
 
+SPEAKER_MAP = {
+    "travis": "fjord",
+    "marisha": "beau",
+    "laura": "jester",
+    "taliesin": {"characters": ["mollymauk", "caduceus"], "episode_cutoff": 26},
+    "ashley": "yasha",
+    "sam": {"characters": ["nott", "veth"], "episode_cutoff": 97},
+    "liam": "caleb",
+}
+
 
 speaker_update_interval_id = None
 image_update_interval_id = None
@@ -391,6 +401,19 @@ def find_closest_scene(
     return closest_scene
 
 
+def map_character(episode_num: int, character: str):
+    _char = character.lower()
+    if _char in SPEAKER_MAP:
+        _char = SPEAKER_MAP[character]
+        if isinstance(_char, dict):
+            if _char["episode_cutoff"] < episode_num:
+                _char = _char["characters"][0]
+            else:
+                _char = _char["characters"][1]
+        return _char
+    return character
+
+
 def find_scene(
     episode_name: str,
     df: pd.DataFrame,
@@ -398,13 +421,15 @@ def find_scene(
     speaker: str | None = None,
     character: str | None = None,
 ) -> pd.Series:
+    episode_num = int(episode_name.split("e")[1])
     df = df.query(f"episode_name == '{episode_name}'")
 
     if speaker:
         df = df.query(f"speaker == '{speaker}'")
 
     if character:
-        df = df.query(f"character == '{character}'")
+        _char = map_character(episode_num, character)
+        df = df.query(f"character == '{_char}'")
 
     current_time = min(current_time, df["end_time"].max())
     current_time = max(current_time, df["start_time"].min())
@@ -426,7 +451,7 @@ def find_scene(
         assert result.shape[0] == 1
         return result.iloc[0]
 
-    # otherwise find the closest environment scene to the timestamp
+    # otherwise find the closest scene to the timestamp
     return find_closest_scene(df, current_time)
 
 
