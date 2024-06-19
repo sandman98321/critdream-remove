@@ -19,7 +19,7 @@ image_url_template = (
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
-APP_VERSION = "2024.06.19.1"
+APP_VERSION = "2024.06.19.2"
 
 NUM_IMAGE_VARIATIONS = 12
 NUM_IMAGE_SAMPLE_TRIES = 100
@@ -204,7 +204,6 @@ ABOUT_CONTENTS = """
         <li><a href="https://www.instagram.com/chieizuma" target="_blank">Chie Izuma</a></li>
         <li><a href="https://www.tumblr.com/battletailors" target="_blank">Ayzek V Kass</a></li>
         <li><a href="https://theminttu.tumblr.com/" target="_blank">Minttu Hynninen</a></li>
-        <li><a href="https://linktr.ee/heartofpack" target="_blank">HeartofPack</a></li>
         <li><a href="https://www.reddit.com/user/Milakangelo/" target="_blank">Milakangelo</a></li>
         <li><a href="https://www.artstation.com/sinadraws" target="_blank">Sina Rupp</a></li>
         <li><a href="https://www.toribennett.com/" target="_blank">Tori Bennett</a></li>
