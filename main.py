@@ -19,7 +19,7 @@ image_url_template = (
     "{episode_name}/{scene_name}_image_{image_num}.png"
 )
 
-APP_VERSION = "2024.06.18.1"
+APP_VERSION = "2024.06.19.1"
 
 NUM_IMAGE_VARIATIONS = 12
 NUM_IMAGE_SAMPLE_TRIES = 100
@@ -389,6 +389,7 @@ def set_current_episode(event):
     df = load_data(episode_name)
     # set video on the youtube player
     player.cueVideoById(video_id)
+    update_image()
 
 
 def find_closest_scene(
