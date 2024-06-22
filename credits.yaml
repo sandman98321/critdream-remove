@@ -7,10 +7,6 @@
   class_data_root: data/dungeon_master
   class_prompt: a picture of a dungeon master.
   instance_urls:
-  - creator: Brandy York
-    creator_website: https://brandiyorkart.com
-    source: https://brandiyorkart.com/products/critical-role-master-of-the-game-print?_pos=1&_sid=bd5b85080&_ss=r
-    url: https://brandiyorkart.com/cdn/shop/products/cr-master-of-the-game_sm_1024x1024.jpg
   - creator: Joré Escalera
     creator_website: https://www.deviantart.com/eljore/gallery
     source: https://www.deviantart.com/eljore/art/The-Dungeon-Master-536719339
