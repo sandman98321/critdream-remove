@@ -171,7 +171,6 @@ ABOUT_CONTENTS = """
     </p>
 
     <ul id="credits" class="columns">
-        <li><a href="https://brandiyorkart.com" target="_blank">Brandy York</a></li>
         <li><a href="https://www.deviantart.com/eljore/gallery" target="_blank">Joré Escalera</a></li>
         <li><a href="https://pabloagurcia.artstation.com/" target="_blank">Pablo Agurcia</a></li>
         <li><a href="https://www.etsy.com/shop/AstralTigerArt" target="_blank">Kerri Aitken</a></li>
